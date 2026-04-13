@@ -1,18 +1,5 @@
 #  HTMR: Hybrid Token Masking Reinforcement Learning with Verifiable Rewards for Event Argument Extraction with Multi-Perspective Reasoning
 
-
-## 📖 Abstract
-
-Event Argument Extraction (EAE) aims to identify event arguments and assign semantic roles under a predefined schema. Recent work formulates EAE with large language models as a structured conditional generation task and applies Reinforcement Learning with Verifiable Rewards (RLVR) to optimize sequence-level event structures. 
-However, RLVR-based EAE supervision is coarse-grained, as a single reward is assigned to the whole event structure, while optimization happens at the token level. This misalignment causes the same reward to be applied to all tokens, including those not related to event roles or arguments, introducing noise into the gradient updates and weakening the signals for decisions critical to argument extraction.
-To mitigate this misalignment, we propose Hybrid Token Masking RLVR (HTMR), which selectively updates policy gradients on both high-entropy forking tokens and event-critical tokens that define event structure, along with multi-perspective reasoning.
-Experiments across multiple benchmarks and models show that HTMR consistently outperforms full-token and high-entropy only RLVR methods. Moreover, HTMR transfers effectively as a plug-and-play approach to other tasks such as named entity recognition and relation classification.
-
-## 🌟 Key Contributions
-- We identify a fundamental mismatch in RLVR-based EAE, where sequence-level structural rewards are optimized through token-level updates that are weakly aligned with event-defining decisions, leading to suboptimal policy updates.
-- We propose HTMR, a task-aware post-training framework that integrates multi-perspective reasoning warm-up with hybrid token masking over high-entropy and event-critical tokens, explicitly aligning policy updates with event-defining decisions and stabilizing RLVR optimization.
-- We evaluate HTMR across multiple benchmarks and LLM backbones, demonstrating consistent improvements over decoder-only LLM baselines, and conduct extensive ablation and cross-task experiments to verify its effectiveness and generality beyond EAE.
-
 ![Overview of HTMR](pic/overiew-htmr-v2.png)
 
 ## 🧹 Data Preprocessing
@@ -115,12 +102,6 @@ For more details, please refer to the [Verl Installation Guide](https://verl.rea
 ### 1. 📝 Generate Multi-perspective SFT Dataset
 
 To foster diverse exploration strategies, we introduce a multi-perspective reasoning warm-up. We provide five distinct reasoning rationales located in `prompts/muti/`:
-
-*   **Trigger-centric filtering** (`prompt-trigger.txt`): Treats the event trigger as the semantic anchor and constrains argument plausibility accordingly.
-*   **Role-centric contrastive reasoning** (`prompt-role.txt`): Explicitly compares candidate entities against role definitions and against each other.
-*   **Linguistic–heuristic analysis** (`prompt-heuristic.txt`): Emphasizes syntactic structure, discourse prominence, and surface linguistic cues in context.
-*   **Cognitive-style reasoning** (`prompt-cognitive.txt`): Simulates human-like attention shifts, hypothesis revision, and narrative coherence checking.
-*   **Causal–temporal forensics** (`prompt-causal.txt`): Reconstructs local event timelines and causal relations to validate role assignments under event dynamics.
 
 We employ **Qwen3-Max** through **[Alibaba Cloud Model Studio](https://modelstudio.alibabacloud.com/)** to generate multi-perspective reasoning traces.  
 In principle, any comparable large language model can be substituted for this step.  
