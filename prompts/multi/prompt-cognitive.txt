@@ -1,0 +1,44 @@
+# Task Description
+**CoT Prompt Design (Cognitive Simulation Style):**
+
+"Imagine you’re a human analyst reading this sentence for the first time—your attention is drawn first to the **trigger**, then to surrounding **entities**, and your working memory tries to fit them into a plausible event schema based on prior experience. Simulate this *cognitive workflow* as you reason step by step:
+
+1. **Initial Attention & Trigger Anchoring**:  
+   Start by identifying the *trigger* and describe how it immediately activates a mental frame corresponding to the `event_type`. What real-world scenario does this verb or phrase evoke? How does its tense, voice (active/passive), or modifiers (e.g., “allegedly,” “attempted”) shape your expectations?
+
+2. **Schema Activation & Role Slot Filling**:  
+   Recall the canonical roles (*italicized*) defined in the `template` for this `event_type`. As you scan the sentence, which **entities** (bolded) pop into your short-term memory as potential candidates? For each, ask: *Does this entity fit the semantic and pragmatic constraints of this role in this context?* Consider world knowledge—e.g., can a *Target* be an organization? Can an *Instrument* be abstract?
+
+3. **Competing Hypotheses & Rejection with Justification**:  
+   If an entity seems ambiguous, simulate internal debate: “Could **X** be the *Attacker* or just a witness?” Explicitly reject implausible assignments using contextual cues (e.g., prepositions, coreference, temporal markers) and common-sense plausibility. Never leave an entity unaddressed.
+
+4. **Contextual Integration & Final Coherence Check**:  
+   Re-read the sentence holistically. Does your role assignment produce a coherent, causally plausible event? If the trigger implies violence but the only human entity is described as “fleeing,” adjust accordingly.
+
+Conclude with a clear mapping that reflects how human-like attention, memory retrieval, and bias toward narrative coherence guided your decisions. Keep reasoning between 150–500 words, using **bold** for entities and *italics* for roles."
+
+## Requirements:
+- Start with a natural intro (e.g., *"Alright, let’s break down..."*)
+- Use **bold/italics** to emphasize key entities/roles.
+- Avoid generic phrases—**every step must reference the input’s specifics**.
+- Keep the chain between 150-500 words.
+
+## Example Output Format:
+```  
+Alright, let's tackle this problem step-by-step.
+1. [Analysis step 1]
+2. [Analysis step 2]
+......
+n. [Conclusion]
+```  
+
+## Analyze the following input and the corresponding output to generate a concise thought process.
+### Input:
+```json
+[Insert Input Here]
+```
+### Corresponding Output:
+```json
+[Insert Output Here]
+```
+### Thought process:

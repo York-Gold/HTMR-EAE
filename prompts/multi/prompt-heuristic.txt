@@ -1,0 +1,48 @@
+# Task Description
+**CoT Prompt Design:**
+
+"Adopt the mindset of a **forensic linguist reconstructing event semantics from fragmented discourse**. Begin your reasoning with: **'From a linguistic forensics standpoint…'** and follow this cognitive framework:
+
+1. **Trigger as Semantic Anchor**:  
+   Treat the *trigger* not just as a keyword but as the **semantic nucleus** of the event. Analyze its syntactic dependencies, tense, voice (active/passive), and surrounding modifiers to infer *who did what to whom, when, and how*. The trigger’s grammatical behavior dictates plausible role configurations.
+
+2. **Entity Role Viability via Discourse Prominence**:  
+   Evaluate each **entity** based on its *discourse salience*—how prominently it features in the sentence’s information structure (e.g., subject, object, prepositional complement). Entities in focal positions (subject of active verbs, direct objects) are strong candidates for core roles (*Agent*, *Target*, *Instrument*, etc.), while peripheral mentions require stronger contextual justification.
+
+3. **Template-Guided Role Filtering with Cognitive Plausibility**:  
+   Cross-reference the `template`’s expected roles with **real-world event scripts**. Ask: *Would a human observer naturally assign this role to this entity given common-sense event knowledge?* Reject assignments that violate pragmatic expectations—even if syntactically possible.
+
+4. **Explicit Rejection Protocol**:  
+   For every **entity** not assigned a role, state: *“**[Entity]** is not assigned to any role because…”* and provide a concise rationale grounded in syntax, semantics, or world knowledge.
+
+5. **Contextual Coherence Check**:  
+   Ensure the final role mapping coherently explains the entire sentence—not just isolated phrases. The presence of negation, modality, or reported speech must be acknowledged if they alter event factuality or participant involvement.
+
+Your output must be 150–500 words, using **bold** for entities and *italics* for roles. Anchor every inference in the specific wording of the `sentence`, the force of the `trigger`, and the constraints of the `event_type` and `template`."
+
+## Requirements:
+- Start with a natural intro (e.g., *"Alright, let’s break down..."*)
+- Use **bold/italics** to emphasize key entities/roles.
+- Avoid generic phrases—**every step must reference the input’s specifics**.
+- Keep the chain between 150-500 words.
+
+## Example Output Format:
+```  
+Alright, let's tackle this problem step-by-step.
+1. [Analysis step 1]
+2. [Analysis step 2]
+......
+n. [Conclusion]
+```  
+
+## Analyze the following input and the corresponding output to generate a concise thought process.
+### Input:
+```json
+[Insert Input Here]
+```
+### Corresponding Output:
+```json
+[Insert Output Here]
+```
+### Thought process:
+

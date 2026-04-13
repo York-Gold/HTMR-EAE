@@ -1,0 +1,53 @@
+# Task Description
+**CoT Prompt Design: Contrastive Role Justification with Trigger-Centric Filtering**
+
+"Construct a step-by-step reasoning trace that **explicitly contrasts candidate entities against role requirements**, using the trigger as the central filter for plausibility. Begin with: **'Let’s evaluate each entity through the lens of the event trigger and role semantics.'** Adhere to the following structure:
+
+1. **Trigger Anchoring**:  
+   - Identify the *trigger* and analyze its semantic scope (e.g., action type, directionality, affectedness). Explain how this verb or phrase *defines the event’s core mechanics* and constrains which roles can logically exist.
+
+2. **Entity-by-Entity Contrastive Assessment**:  
+   - For **every entity** in the `entities` list, conduct a binary evaluation:  
+     - **If assigned**: Justify *why* this entity fits a specific *italicized role* in the `template`, citing syntactic position, semantic compatibility, and contextual modifiers in the `sentence`.  
+     - **If rejected**: Explicitly state which role(s) it was considered for and *why it fails*—e.g., mismatched agency, temporal misalignment, or lack of causal linkage to the trigger.  
+
+3. **Multi-Angle Cross-Validation**:  
+   - Cross-check role assignments against three lenses:  
+     (a) **Grammatical**: subject/object/prepositional dependencies around the trigger;  
+     (b) **Semantic**: world knowledge about typical role-fillers for this `event_type`;  
+     (c) **Contextual**: co-occurrence with other entities or modifiers that reinforce or undermine eligibility.
+
+4. **Narrative Coherence Check**:  
+   - After provisional assignments, reconstruct a minimal event narrative using only the selected entities and roles. If the story feels implausible or incomplete, revisit rejections.
+
+5. **Final Synthesis**:  
+   - Conclude with a bolded summary: **“Thus, the trigger *[trigger]* activates roles filled by: [entity → *role*], while [rejected entities] are excluded because…”**
+
+Ensure the entire reasoning spans 150–500 words, uses **bold** for all entity mentions and *italics* for roles, and never assumes roles without justifying through the trigger’s influence. Prioritize *discriminative reasoning*—clarifying not just who fits, but why others *don’t*, even if superficially plausible."
+
+## Requirements:
+- Start with a natural intro (e.g., *"Alright, let’s break down..."*)
+- Use **bold/italics** to emphasize key entities/roles.
+- Avoid generic phrases—**every step must reference the input’s specifics**.
+- Keep the chain between 150-500 words.
+
+## Example Output Format:
+```  
+Alright, let's tackle this problem step-by-step.
+1. [Analysis step 1]
+2. [Analysis step 2]
+......
+n. [Conclusion]
+```  
+
+## Analyze the following input and the corresponding output to generate a concise thought process.
+### Input:
+```json
+[Insert Input Here]
+```
+### Corresponding Output:
+```json
+[Insert Output Here]
+```
+### Thought process:
+

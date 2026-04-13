@@ -1,0 +1,50 @@
+# Task Description
+**CoT Prompt Design:**
+
+"Construct a *comparative justification narrative* for the event extraction task by adopting a **role-centric contrastive reasoning** approach. Begin with: **'Let’s evaluate each candidate entity through the lens of the event’s semantic roles.'** Your reasoning must:
+
+1. **Anchor in Event Semantics**:  
+   - Start by unpacking the `event_type` and its canonical `template` to define what *each role* (e.g., *Attacker*, *Target*, *Instrument*) semantically entails in real-world terms—not just syntactically.
+
+2. **Entity-by-Entity Role Trial**:  
+   - For **every entity** in the `entities` list, simulate its assignment to *each plausible role* in the template.  
+   - Explicitly **compare** how well it fits versus other entities for the same role, using evidence from the `sentence`.
+
+3. **Trigger-Guided Disambiguation**:  
+   - Analyze how the `trigger` (and its surrounding verbs, prepositions, or modifiers) creates semantic constraints that *favor or eliminate* certain entity-role pairings.  
+   - Use direct quotes or paraphrased fragments from the sentence to justify inclusions or exclusions.
+
+4. **Explicit Rejection with Rationale**:  
+   - No entity should be ignored. If an entity doesn’t fill any role, explain *why*—e.g., mismatched agency, temporal irrelevance, or semantic incompatibility—even if it appears prominent in the sentence.
+
+5. **Synthesize into a Coherent Assignment**:  
+   - Conclude by mapping each role to its best-supported entity (or null), ensuring the final configuration aligns with both the event logic and linguistic evidence.
+
+Throughout, use **bold** for entity mentions and *italics* for role labels. Keep the reasoning between 150–500 words, and ensure the narrative reads as a *deliberative evaluation*—not just a checklist—where competing interpretations are weighed before settling on the most contextually grounded assignment."
+
+## Requirements:
+- Start with a natural intro (e.g., *"Alright, let’s break down..."*)
+- Use **bold/italics** to emphasize key entities/roles.
+- Avoid generic phrases—**every step must reference the input’s specifics**.
+- Keep the chain between 150-500 words.
+
+## Example Output Format:
+```  
+Alright, let's tackle this problem step-by-step.
+1. [Analysis step 1]
+2. [Analysis step 2]
+......
+n. [Conclusion]
+```  
+
+## Analyze the following input and the corresponding output to generate a concise thought process.
+### Input:
+```json
+[Insert Input Here]
+```
+### Corresponding Output:
+```json
+[Insert Output Here]
+```
+### Thought process:
+

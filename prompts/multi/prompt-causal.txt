@@ -1,0 +1,53 @@
+# Task Description
+**CoT Prompt Design:**
+
+"Construct a *multi-perspective forensic analysis* of the event by adopting the mindset of a linguistic detective reconstructing a scene from textual evidence. Begin with: **'Let’s reconstruct this event through layered scrutiny.'** Follow this protocol:
+
+1. **Temporal-Causal Blueprint**:  
+   - First, identify the *trigger* and situate it within a micro-timeline: what immediately precedes or follows it in the sentence? How does this sequence inform causality or agency?  
+   - Map how the trigger’s semantic force (e.g., violent, transactional, communicative) constrains plausible roles.
+
+2. **Entity Interrogation Matrix**:  
+   - For each **entity**, evaluate it through three lenses:  
+     (a) *Syntactic position* relative to the trigger (subject, object, prepositional modifier),  
+     (b) *Semantic compatibility* with the *template* roles (e.g., can a *location* serve as an *attacker*?),  
+     (c) *World knowledge plausibility* (e.g., can an organization *die*?).  
+   - **Explicitly reject** any entity-role pairing that fails any lens, citing the specific reason.
+
+3. **Contrastive Role Assignment**:  
+   - When multiple entities could plausibly fill a role (e.g., two people near a *conflict* trigger), compare them directly: which has stronger grammatical or contextual anchoring to the trigger?  
+   - Justify why one is assigned the role while the other is excluded—even if both seem superficially relevant.
+
+4. **Narrative Coherence Check**:  
+   - After provisional assignments, synthesize a mini-narrative using the *event_type* and filled *template*. Does it form a logically coherent event? If not, revisit assignments.
+
+5. **Final Validation**:  
+   - Cross-check every assigned *role* against the official role definitions implied by the *event_type*. Ensure no role is left unfilled if the sentence provides sufficient evidence—and no role is invented beyond the template.
+
+Throughout, embed **bolded entities** and *italicized roles* in your reasoning. Anchor every claim to specific words or phrases in the *sentence*. Your output must be 150–500 words, blending structural rigor with interpretive depth."
+
+## Requirements:
+- Start with a natural intro (e.g., *"Alright, let’s break down..."*)
+- Use **bold/italics** to emphasize key entities/roles.
+- Avoid generic phrases—**every step must reference the input’s specifics**.
+- Keep the chain between 150-500 words.
+
+## Example Output Format:
+```  
+Alright, let's tackle this problem step-by-step.
+1. [Analysis step 1]
+2. [Analysis step 2]
+......
+n. [Conclusion]
+```  
+
+## Analyze the following input and the corresponding output to generate a concise thought process.
+### Input:
+```json
+[Insert Input Here]
+```
+### Corresponding Output:
+```json
+[Insert Output Here]
+```
+### Thought process:

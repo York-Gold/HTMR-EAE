@@ -1,0 +1,84 @@
+# Task Description
+**Task**: Event Argument Extraction  
+**Objective**: Identify and fill event argument roles based on the given sentence, entity mentions, event trigger, and argument schema.
+**Output**: A JSON array of objects with keys `role` and `entity`. Omit roles with no matching entities.
+
+## Input Specifications
+1. **Sentence**: A sentence containing an event.  
+2. **Entity Mentions**: Pre-annotated entities with types (e.g., `Person`, `Geo-Political Entity`).  
+3. **Event Trigger**:  
+   - `word`: The trigger word (e.g., "wounded").  
+   - `event_type`: Event type (e.g., "Life.Injure").  
+4. **Argument Schema**:  
+   - `argument_roles`: Definitions for each role (e.g., `"Victim": "People or Organization"`).   
+   - `template`: Event structure template (e.g., `"Agent injured Victim with Instrument at Place."`).  
+
+## Output Requirements
+1. **Strict Matching**: Use **only entities from `entity_mentions`**.  
+2. **Multi-Argument Roles**: A role may have multiple arguments (e.g., two "Attacker" entries).  
+3. **Output Format**:  
+```json
+[{"role": "[Role_name]", "entity": "[Entity]"}, ...]
+```
+
+## Examples
+### Example 1:
+#### Input:
+```json
+{
+  "sentence": "Sergeant Chuck Hagel was seriously wounded twice in Vietnam.",
+  "entity_mentions": [
+    {"entity": "Sergeant", "entity_type": "Person"},
+    {"entity": "Chuck Hagel", "entity_type": "Person"},
+    {"entity": "Vietnam", "entity_type": "Geo-Political Entity"}
+  ],
+  "trigger": {"word": "wounded", "event_type": "Life.Injure"},
+  "argument_roles": {
+    "Victim": "People or Organization",
+    "Agent": "People or Organization",
+    "Place": "Location",
+    "Instrument": "Vehicle or Facility"
+  },
+  "template": "Agent injured Victim with Instrument at Place."
+}
+```
+#### Output:
+```json
+[{"role": "Victim", "entity": "Chuck Hagel"}, {"role": "Place", "entity": "Vietnam"}]
+```
+
+### Example 2:
+#### Input:  
+```json
+{
+  "sentence": "But , for Israeli , Palestinian conflict there 's a lot of decisions that has to be -- applied but until now -- she didn't put any pressure , toward and I believe this policy has been this kind of policy, became more and more during Bush -- President Bush time .",
+  "entity_mentions": [
+    {"entity": "Israeli", "entity_type": "Geo-Political Entity"},
+    {"entity": "Palestinian", "entity_type": "Geo-Political Entity"},
+    {"entity": "President", "entity_type": "Person"},
+    {"entity": "Bush", "entity_type": "Person"}
+  ],
+  "trigger": {"word": "conflict", "event_type": "Conflict.Attack"},
+  "argument_roles": {
+    "Attacker": "People or Organization",
+    "Place": "Location",
+    "Target": "People or Organization",
+    "Instrument": "Vehicle or Facility",
+    "Victim": "People or Organization"
+  },
+  "template": "Attacker attacked Target hurting Victim using Instrument at Place."
+}
+```
+
+#### Output:  
+```json
+[{"role": "Attacker", "entity": "Israeli"}, {"role": "Attacker", "entity": "Palestinian"}]
+```
+
+## Your Task
+### Analyze the following input and generate the output JSON:
+#### Input:
+```json
+[Insert Input Here]
+```
+#### Output:
