@@ -6,7 +6,7 @@
 
 We evaluate our approach on two widely used benchmarks: **ACE 2005** ([LDC2006T06](https://catalog.ldc.upenn.edu/LDC2006T06)) and **ERE** ([LDC2023T04](https://catalog.ldc.upenn.edu/LDC2023T04)). Please note that these datasets are distributed by the Linguistic Data Consortium (LDC) and require a valid license for access.
 
-Following previous work, we partition the ACE 2005 dataset into two distinct versions: **ACE05-E** and **ACE05-E+**. 
+Following previous work, we construct two variants of the ACE 2005 corpus, referred to as **ACE05-E** and **ACE05-E+**.
 
 Our data preprocessing pipeline follows the methodology established by [Scented-EAE](https://github.com/yy-degit/Scented-EAE), which provides a strong reference implementation for EAE research.
 
