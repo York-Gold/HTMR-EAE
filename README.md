@@ -402,3 +402,29 @@ We would like to express our sincere gratitude to the following open-source proj
 *   **[Beyond the 80/20 Rule](https://github.com/Shenzhi-Wang/Beyond-the-80-20-Rule-RLVR)**: For their inspiring work on high-entropy token masking, which served as a key reference for our approach.
 
 We also thank the developers of **[Qwen](https://huggingface.co/Qwen/Qwen3-8B)**, **[Llama](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct)**, and **[DeepSeek](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B)** for open-sourcing their powerful language models.
+
+## 📚 Citation
+
+If you find this work useful for your research, please kindly cite our paper:
+
+```bibtex
+@inproceedings{luo-etal-2026-htmr,
+    title = "{HTMR}: Hybrid Token Masking Reinforcement Learning with Verifiable Rewards for Event Argument Extraction with Multi-Perspective Reasoning",
+    author = "Luo, Jianwen  and
+      Jin, Yongkang  and
+      Hong, Yu  and
+      Yao, Jianmin",
+    editor = "Liakata, Maria  and
+      Moreira, Viviane P.  and
+      Zhang, Jiajun  and
+      Jurgens, David",
+    booktitle = "Proceedings of the 64th Annual Meeting of the {A}ssociation for {C}omputational {L}inguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2026",
+    address = "San Diego, California, United States",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.acl-long.910/",
+    pages = "19853--19873",
+    ISBN = "979-8-89176-390-6"
+}
+```
